@@ -89,6 +89,7 @@ if (app.Environment.IsDevelopment())
 app.UseCors("AllowReactApp");
 
 app.UseAuthentication();
+   app.UseCors("AllowFrontend");
 app.UseAuthorization();
 
 app.UseHttpsRedirection();
