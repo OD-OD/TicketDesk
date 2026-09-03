@@ -74,6 +74,9 @@ builder.Services.AddControllers();
 
 builder.Services.AddScoped<ITicketService, TicketService>();
 
+   builder.Services.AddCors(o => o.AddPolicy("AllowFrontend", p =>
+       p.WithOrigins("https://ticket-desk-phi.vercel.app").AllowAnyMethod().AllowAnyHeader()));
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
