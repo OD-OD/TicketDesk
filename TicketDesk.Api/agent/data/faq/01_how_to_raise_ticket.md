@@ -1,0 +1,2 @@
+# How to raise a ticket
+To raise a ticket, log in to the TicketDesk application, go to the Tickets page, and click "Create New Ticket". Fill in the title and description, then submit. Your ticket will be assigned to an agent.

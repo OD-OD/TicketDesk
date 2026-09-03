@@ -1,0 +1,2 @@
+# How to escalate a ticket
+If your ticket is not resolved within the SLA time, you can escalate by replying to the ticket email or contacting support directly. Agents will prioritize escalated tickets.

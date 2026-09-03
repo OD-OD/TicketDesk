@@ -1,0 +1,15 @@
+# .NET
+**/bin/
+**/obj/
+
+# Environment / secrets
+.env
+**/.env
+
+# Python
+**/venv/
+**/.venv/
+**/__pycache__/
+
+# Chroma
+**/chroma_db/
