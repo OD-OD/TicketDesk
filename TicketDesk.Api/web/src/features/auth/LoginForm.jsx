@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
 import { useNavigate, Link } from 'react-router-dom';
 
-const API_BASE = 'http://localhost:5010/api';
+const API_BASE = import.meta.env.VITE_API_BASE;
 
 export default function LoginForm({ onLoggedIn }) {
   console.log('✅ LoginForm rendering'); // debug
