@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 
-const API_BASE = 'http://localhost:5010/api'; // change to your API's port
+const API_BASE = import.meta.env.VITE_API_BASE;
 
 export function useFetch(path, { method = 'GET', body, token, skip = false } = {}) {
   const [data, setData] = useState(null);
