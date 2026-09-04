@@ -8,12 +8,12 @@ using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// ✅ 1. ADD CORS POLICY HERE (before builder.Build())
+// CORS — one policy, covers both local dev and the live Vercel frontend
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowReactApp", policy =>
+    options.AddPolicy("AllowFrontend", policy =>
     {
-        policy.WithOrigins("http://localhost:5173")  // React dev server URL
+        policy.WithOrigins("http://localhost:5173", "https://ticket-desk-phi.vercel.app")
               .AllowAnyHeader()
               .AllowAnyMethod();
     });
@@ -74,9 +74,6 @@ builder.Services.AddControllers();
 
 builder.Services.AddScoped<ITicketService, TicketService>();
 
-   builder.Services.AddCors(o => o.AddPolicy("AllowFrontend", p =>
-       p.WithOrigins("https://ticket-desk-phi.vercel.app").AllowAnyMethod().AllowAnyHeader()));
-
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -85,11 +82,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-// ✅ 2. USE CORS HERE – MUST BE BEFORE UseAuthentication() and UseAuthorization()
-app.UseCors("AllowReactApp");
+app.UseCors("AllowFrontend");
 
 app.UseAuthentication();
-   app.UseCors("AllowFrontend");
 app.UseAuthorization();
 
 app.UseHttpsRedirection();
