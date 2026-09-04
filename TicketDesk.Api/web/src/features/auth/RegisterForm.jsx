@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 
-const API_BASE = 'http://localhost:5010/api';
+const API_BASE = import.meta.env.VITE_API_BASE;
 
 export default function RegisterForm() {
   const [name, setName] = useState('');
